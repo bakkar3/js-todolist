@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ToDoList</title>
-    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../css/main.css" />
   </head>
   <body>
     <header>
@@ -14,20 +14,19 @@
       <span class="c-tasks-done">0</span>
     </header>
 
-   <div class="container">
+    <div class="container">
+      <h1>DEVLOGS TODOLIST</h1>
 
-     <h1>DEVLOGS TODOLIST</h1>
+      <form>
+        <input type="text" placeholder="New Task" />
+        <button type="submit">Add</button>
+        <span id="clear-btn">Clear</span>
+      </form>
+      <div id="alert-area"></div>
 
-    <form>
-      <input type="text" placeholder="New Task" />
-      <button type="submit">Add</button>
-      <span id="clear-btn">Clear</span>
-    </form>
-    <div id="alert-area"></div>
-
-    <div class="tasks-empty"></div>
-    <ul class="list"></ul>
-   </div>
+      <div class="tasks-empty"></div>
+      <ul class="list"></ul>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
