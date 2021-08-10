@@ -106,7 +106,7 @@ form #clear-btn {
 .list .list-item .task {
   /* background-color: #0688cf; */
   display: inline-block;
-  width: calc(100% - 6%);
+  width: 94%;
   padding: 20px;
   cursor: pointer;
 }
