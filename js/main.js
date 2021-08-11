@@ -5,15 +5,16 @@ let alertArea = document.querySelector("#alert-area");
 let tasksEmptyDiv = document.querySelector(".tasks-empty");
 let list = document.querySelector(".list");
 
-window.onload = input.focus();
+// window.onload = input.focus();
 
 tasksEmpty();
 form.onsubmit = newTask;
 clearBtn.onclick = clearTasks;
 
 function newTask(e) {
-  e.preventDefault();     // defult dawonload = no refrech
-  if (input.value === "") {    // return false;
+  e.preventDefault(); // defult dawonload = no refrech
+  if (input.value === "") {
+    // return false oder aleart;
     alertArea.innerHTML =
       '<div class = "non-value">Pleas Insert Value   !</div>';
     setTimeout(() => {
@@ -21,33 +22,32 @@ function newTask(e) {
       nonValue.style.height = 0;
       nonValue.style.padding = 0;
 
-      setTimeout(() => {
-        nonValue.remove();
-      }, 1000);
-    }, 2000);
+      // setTimeout(() => {
+      //   nonValue.remove();
+      // }, 1000);
+    }, 1000);
   } else {
     // add Task
     let listItem = document.createElement("li");
-    listItem.classList.add("list-item");
-    let inputCap =
+    listItem.classList.add("list-item");    //HTML DOM classList Property document.getElementById("myDIV").classList.add("mystyle");
+
+    let inputCapital =
       input.value.substr(0, 1).toUpperCase() +
       input.value.substr(1, input.value.length); //erste letter groß.
 
-    listItem.innerHTML = ` 
-    <span class="task">${inputCap}</span>
-    <span class="del">X </span>
-    
-    `;
-    list.appendChild(listItem); // add serch word
-    input.value = ""; // delet the serch
-    input.focus(); // macht focus im serch butoon
+    listItem.innerHTML = `<span class="task">${inputCapital}</span>
+                          <span class="del"> X </span>`;
+
+    list.appendChild(listItem);              // add serch word
+    input.value = "";                       // delet the serch
+    input.focus();                          // macht focus im serch butoon
     tasksEmpty();
     tasksCount(list.children.length);
-    
+
     // tasksDone(list)
 
     // Delete Task
-    let = delBtns = document.querySelectorAll(".del");
+    let delBtns = document.querySelectorAll(".del");
     delBtns.forEach((btn) => {
       btn.onclick = deleteTask;
     });
