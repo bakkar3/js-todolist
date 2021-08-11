@@ -12,9 +12,8 @@ form.onsubmit = newTask;
 clearBtn.onclick = clearTasks;
 
 function newTask(e) {
-  e.preventDefault();
-
-  if (input.value === "") {
+  e.preventDefault();     // defult dawonload = no refrech
+  if (input.value === "") {    // return false;
     alertArea.innerHTML =
       '<div class = "non-value">Pleas Insert Value   !</div>';
     setTimeout(() => {
@@ -36,7 +35,7 @@ function newTask(e) {
 
     listItem.innerHTML = ` 
     <span class="task">${inputCap}</span>
-    <span class="del">X</span>
+    <span class="del">X </span>
     
     `;
     list.appendChild(listItem); // add serch word
@@ -44,9 +43,10 @@ function newTask(e) {
     input.focus(); // macht focus im serch butoon
     tasksEmpty();
     tasksCount(list.children.length);
+    
     // tasksDone(list)
 
-    // Delet Task
+    // Delete Task
     let = delBtns = document.querySelectorAll(".del");
     delBtns.forEach((btn) => {
       btn.onclick = deleteTask;
