@@ -5,26 +5,22 @@ let alertArea = document.querySelector("#alert-area");
 let tasksEmptyDiv = document.querySelector(".tasks-empty");
 let list = document.querySelector(".list");
 
-// window.onload = input.focus();
+window.onload = input.focus();
 
 tasksEmpty();
 form.onsubmit = newTask;
 clearBtn.onclick = clearTasks;
 
 function newTask(e) {
-  e.preventDefault(); // defult dawonload = no refrech
+  e.preventDefault();                                    // defult dawonload = no refrech
   if (input.value === "") {
-    // return false oder aleart;
+                                                         // return  aleart;
     alertArea.innerHTML =
       '<div class = "non-value">Pleas Insert Value   !</div>';
     setTimeout(() => {
       let nonValue = document.querySelector(".non-value");
-      nonValue.style.height = 0;
+      nonValue.style.height = 0;                  
       nonValue.style.padding = 0;
-
-      // setTimeout(() => {
-      //   nonValue.remove();
-      // }, 1000);
     }, 1000);
   } else {
     // add Task
@@ -38,8 +34,8 @@ function newTask(e) {
     listItem.innerHTML = `<span class="task">${inputCapital}</span>
                           <span class="del"> X </span>`;
 
-    list.appendChild(listItem);              // add serch word
-    input.value = "";                       // delet the serch
+    list.appendChild(listItem);              // add  word
+    input.value = "";                       // delet the word
     input.focus();                          // macht focus im serch butoon
     tasksEmpty();
     tasksCount(list.children.length);
@@ -52,24 +48,27 @@ function newTask(e) {
       btn.onclick = deleteTask;
     });
 
-    // done Task [li, li, li,.....]
+    // done Task [li, li, li,.....] ein Array
     let allDone = document.querySelectorAll(".list-item");
 
     allDone.forEach((ele) => {
-      ele.children[0].onclick = done; // [0] nur für task
+      ele.children[0].onclick = done; // [0] nur für task nicht für X
     });
   }
 }
 
 function deleteTask(event) {
-  event.target.parentNode.remove();
+  event.target.parentNode.remove();  // HTML DOM parentNode Property 
+
   tasksEmpty();
   tasksCount(list.children.length);
   tasksDone();
 }
 
+
 function clearTasks() {
   list.innerHTML = "";
+
   tasksEmpty();
   tasksCount(list.children.length);
   tasksDone();
@@ -83,14 +82,15 @@ function tasksEmpty() {
   }
 }
 
-function done(event) {
-  event.target.classList.toggle("done"); // toggle und nicht add
+function done(e) {
+  e.target.classList.toggle("done");              // toggle und nicht add
   tasksDone();
 }
 
 function tasksCount(count) {
   document.querySelector(".c-tasks-count").innerHTML = count;
 }
+
 function tasksDone() {
   let doneLength = document.querySelectorAll(".done").length;
   document.querySelector(".c-tasks-done").innerHTML = doneLength;
